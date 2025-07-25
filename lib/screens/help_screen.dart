@@ -575,7 +575,6 @@ class _HelpScreenState extends State<HelpScreen>
           ]),
           SizedBox(height: 20),
 
-          // Legal links
           _buildInfoSection('Legal Information', Icons.gavel, [
             'Privacy Policy',
             'Terms of Service',
@@ -584,7 +583,6 @@ class _HelpScreenState extends State<HelpScreen>
           ], isClickable: true),
           SizedBox(height: 20),
 
-          // Credits
           Container(
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
