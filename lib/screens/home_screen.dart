@@ -785,13 +785,10 @@ class _HomeScreenState extends State<HomeScreen> {
     _refreshData(); // Refresh data when returning
   }
 
-  /// FIXED: Navigate to view details screen - No type casting error
   void _navigateToViewDetails() {
-    // Navigate directly to ViewDetailsScreen, let it load its own data
     AppRoutes.navigateToViewDetails(context);
   }
 
-  /// Show save money dialog - Handle case when balance is $0
   void _showSaveMoneyDialog(AuthProvider authProvider) {
     final _amountController = TextEditingController();
 

@@ -220,7 +220,6 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  /// FIXED: Add welcome transaction to give new users a starting balance
   Future<void> _addWelcomeTransaction() async {
     try {
       // Add a welcome bonus transaction so users have some money to play with
@@ -252,7 +251,6 @@ class AuthProvider extends ChangeNotifier {
       // Initialize database
       await LocalDbService.database;
 
-      // Optionally create default budget categories based on user income
       await _createDefaultBudgetCategories();
     } catch (e) {
       print('Error initializing user in database: $e');
@@ -371,7 +369,6 @@ class AuthProvider extends ChangeNotifier {
     return (savings / _savingsGoal).clamp(0.0, 1.0);
   }
 
-  /// Get current balance from transactions (legacy method - now use currentBalance getter)
   @deprecated
   Future<double> getCurrentBalance() async {
     return _currentBalance;

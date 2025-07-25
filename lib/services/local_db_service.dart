@@ -3,7 +3,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/user.dart' as models;
 
-/// Local SQLite database service for offline storage
 class LocalDbService {
   static Database? _database;
   static const String _databaseName = 'save_my_pocket.db';
@@ -15,7 +14,7 @@ class LocalDbService {
   static const String _budgetCategoriesTable = 'budget_categories';
   static const String _savingsGoalsTable = 'savings_goals';
 
-  /// Get database instance (singleton pattern)
+  /// Get database instance
   static Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDatabase();
@@ -134,17 +133,12 @@ class LocalDbService {
     int newVersion,
   ) async {
     try {
-      if (oldVersion < 2) {
-        // Future database migrations will go here
-        // Example: await db.execute('ALTER TABLE $_usersTable ADD COLUMN new_field TEXT');
-      }
+      if (oldVersion < 2) {}
     } catch (e) {
       print('Error upgrading database: $e');
       rethrow;
     }
   }
-
-  /// USER OPERATIONS
 
   /// Insert or update user profile
   static Future<void> saveUser(models.User user) async {
@@ -211,7 +205,7 @@ class LocalDbService {
       final db = await database;
       await db.insert(_transactionsTable, {
         ...transaction.toJson(),
-        'user_id': 'current_user', // Replace with actual user ID from auth
+        'user_id': 'current_user',
       }, conflictAlgorithm: ConflictAlgorithm.replace);
     } catch (e) {
       print('Error inserting transaction: $e');
@@ -325,7 +319,7 @@ class LocalDbService {
       final db = await database;
       await db.insert(_budgetCategoriesTable, {
         ...category.toJson(),
-        'user_id': 'current_user', // Replace with actual user ID
+        'user_id': 'current_user',
       }, conflictAlgorithm: ConflictAlgorithm.replace);
     } catch (e) {
       print('Error inserting budget category: $e');
@@ -448,7 +442,6 @@ class LocalDbService {
 
   /// UTILITY METHODS
 
-  /// Clear all data for user (useful for logout)
   static Future<void> clearUserData(String userId) async {
     try {
       final db = await database;

@@ -16,8 +16,6 @@ class FirebaseService {
   static const String _transactionsCollection = 'transactions';
   static const String _budgetCategoriesCollection = 'budget_categories';
 
-  /// AUTHENTICATION METHODS
-
   /// Sign up with email and password
   static Future<User?> signUpWithEmailPassword({
     required String email,
@@ -79,8 +77,6 @@ class FirebaseService {
   static User? getCurrentUser() {
     return _auth.currentUser;
   }
-
-  /// FIRESTORE METHODS
 
   /// Save user profile to Firestore
   static Future<void> saveUserProfile(models.User userProfile) async {
@@ -223,8 +219,6 @@ class FirebaseService {
     }
   }
 
-  /// FIREBASE STORAGE METHODS
-
   /// Upload profile image
   static Future<String?> uploadProfileImage(File imageFile) async {
     try {
@@ -284,8 +278,6 @@ class FirebaseService {
       // Don't throw error for image deletion failures
     }
   }
-
-  /// UTILITY METHODS
 
   /// Get user-friendly auth error messages
   static String _getAuthErrorMessage(String errorCode) {

@@ -2,12 +2,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-/// Service for handling external API calls
 class ApiService {
-  // Base URL - YOU NEED TO PROVIDE: Replace with your actual API URL
-  static const String _baseUrl = 'YOUR_API_BASE_URL_HERE';
+  static const String _baseUrl = '.';
 
-  // API timeout duration
   static const Duration _timeout = Duration(seconds: 30);
 
   /// Financial news and tips API call
@@ -25,7 +22,7 @@ class ApiService {
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        // ADJUST THIS based on your API response structure
+
         final List<dynamic> articles = data['articles'] ?? [];
 
         return articles
@@ -50,7 +47,7 @@ class ApiService {
       }
     } catch (e) {
       print('Error fetching financial news: $e');
-      // Return fallback data if API fails
+
       return _getFallbackNews();
     }
   }
@@ -71,7 +68,6 @@ class ApiService {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
 
-        // ADJUST THIS based on your API response structure
         final Map<String, dynamic> rates = data['conversion_rates'] ?? {};
 
         return rates.map((key, value) => MapEntry(key, value.toDouble()));
@@ -126,14 +122,11 @@ class ApiService {
     }
   }
 
-  /// Bank account verification (optional feature)
-  /// YOU NEED TO: Integrate with banking API like Plaid, Yodlee, or TrueLayer
   static Future<Map<String, dynamic>?> verifyBankAccount({
     required String accountNumber,
     required String routingNumber,
   }) async {
     try {
-      // REPLACE WITH YOUR BANKING API SERVICE
       final response = await http
           .post(
             Uri.parse('YOUR_BANK_VERIFICATION_ENDPOINT'),
@@ -158,7 +151,6 @@ class ApiService {
     }
   }
 
-  /// Generic API call helper
   static Future<Map<String, dynamic>?> makeApiCall({
     required String endpoint,
     required String method,
