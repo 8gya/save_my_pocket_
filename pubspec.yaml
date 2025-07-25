@@ -1,0 +1,66 @@
+name: save_my_pocket
+description: "A personal finance management app to track expenses and savings goals."
+
+# Prevent accidental publishing
+publish_to: 'none'
+
+# Version and build number
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI and Icons
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  
+  # HTTP requests for APIs
+  http: ^1.1.0
+  
+  # Firebase (for cloud integration)
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+  
+  # Charts and Graphs (for financial data visualization)
+  fl_chart: ^0.66.0
+  
+  # Date formatting and utilities
+  intl: ^0.19.0
+  
+  # Image handling
+  image_picker: ^1.0.4
+  
+  # Local database (SQLite)
+  sqflite: ^2.3.0
+  path: ^1.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  
+  # Add assets folder for images and icons
+  assets:
+    - assets/images/
+  
+  # Custom fonts (optional - can be added later)
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: assets/fonts/Roboto-Regular.ttf
+  #       - asset: assets/fonts/Roboto-Bold.ttf
+  #         weight: 700

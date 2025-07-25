@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1090331475366",
+    "project_id": "save-pocket-3419c",
+    "storage_bucket": "save-pocket-3419c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090331475366:android:00a577dc1ac5cd4e686367",
+        "android_client_info": {
+          "package_name": "com.example.save_pocket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6BbMXXrFgaZRLAM7QxJzVREl-IB4OTYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
